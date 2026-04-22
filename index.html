@@ -18,4 +18,45 @@
 
 </body>
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<style>
+  body {
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .pixel-castelo {
+    /* Tamanho de cada "pixel" */
+    width: 10px;
+    height: 10px;
+    background: #78909c; /* Cor base (pedra) */
+    
+    /* Configuração da sombra para desenhar o castelo */
+    box-shadow: 
+      /* Torres */
+      10px 0 #78909c, 10px -10px #78909c, 10px -20px #78909c, 10px -30px #78909c,
+      50px 0 #78909c, 50px -10px #78909c, 50px -20px #78909c, 50px -30px #78909c,
+      
+      /* Corpo do Castelo */
+      20px 0 #78909c, 30px 0 #78909c, 40px 0 #78909c,
+      20px -10px #78909c, 30px -10px #78909c, 40px -10px #78909c,
+      
+      /* Ameias (topo) */
+      10px -40px #78909c, 20px -20px #78909c, 30px -30px #78909c, 40px -20px #78909c, 50px -40px #78909c,
+      
+      /* Porta */
+      30px -10px #5d4037, 30px -20px #5d4037;
+  }
+</style>
+</head>
+<body>
+  <div class="pixel-castelo"></div>
+</body>
 </html>
+
+  
