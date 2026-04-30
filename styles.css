@@ -72,5 +72,43 @@ body {
     100% { transform: rotate(30deg); }
   }
   
+  .caixa-castelo{
+    background-color: lightcoral;
+    width: 200px;
+    right: 100px;
+    bottom: 100px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+  }
+
+  .torre-castelo{
+    background-color: lightgray;
+    width: 10px;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+  }
+
+  .topo-castelo{
+    background-color: lightsalmon;
+    width: 10px;
+    height: 10px;
+  }
+
+  .corpo-castelo{
+    background-color: #78909c;
+    width: 20px;
+    height: 20px;
+  }
+
+  .porta-castelo{
+    background-color: #5d4037;
+    width: 10px;
+    height: 30px;
+  }
 
   

@@ -1,0 +1,145 @@
+/* CASTELO */
+
+:root{
+  --bg:#f6f6f6;
+  --paper:#ffffff;
+  --stroke:#000000;
+  --accent:#e6e6e6;
+  --max-w:1600px;
+  --max-h:900px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,#efefef,#fff);
+  font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  padding:18px;
+}
+
+.stage{
+  width:100%;
+  max-width:calc(var(--max-w) - 40px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.frame{
+  width:100%;
+  aspect-ratio: 16 / 9;
+  max-height:calc(var(--max-h) - 40px);
+  background:var(--paper);
+  border:8px solid var(--stroke);
+  padding:12px;
+  box-shadow:0 18px 60px rgba(0,0,0,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* SVG ocupa a maior parte do frame */
+svg.canvas{
+  width:94%;
+  height:auto;
+  display:block;
+}
+
+/* estilos aplicados dentro do SVG via CSS externo */
+svg .stroke { stroke:var(--stroke); stroke-linecap:round; stroke-linejoin:round; }
+svg .thick { stroke-width:8; }
+svg .med { stroke-width:4; }
+svg .thin { stroke-width:2; }
+svg .fill-white { fill:#fff; }
+svg .fill-light { fill:var(--accent); }
+svg .fill-dark { fill:var(--stroke); }
+
+.caption{
+  margin-top:10px;
+  text-align:center;
+  font-size:13px;
+  color:#222;
+}
+
+@media (max-width:900px){
+  .stage{max-width:900px}
+  .frame{border-width:6px}
+}
+
+/* CRUZ */
+
+.canvas2{
+  width:92%;
+  height:auto;
+  display:block;
+  filter:grayscale(100%) contrast(110%);
+}
+
+/* MORCEGO */
+.bat {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #000;
+  animation: fly 0.5s infinite alternate; /* Aplica a animação */
+}
+
+.eyes{
+  /* position: absolute; */
+  background-color: red;
+  width: 40%;
+  height: 20px;
+}
+
+/* Asas do Morcego */
+.bat::before,
+.bat::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 40px;
+  height: 30px;
+  background-color: #000;
+  border-radius: 50% 50% 0 0;
+  transition: all 0.5s;
+}
+
+/* Asa Esquerda */
+.bat::before {
+  left: -35px;
+  border-radius: 100% 0 50% 50%;
+  transform-origin: right bottom;
+  animation: leftWing 0.5s infinite alternate;
+}
+
+/* Asa Direita */
+.bat::after {
+  right: -35px;
+  border-radius: 0 100% 50% 50%;
+  transform-origin: left bottom;
+  animation: rightWing 0.5s infinite alternate;
+}
+
+/* Animação do Corpo (subindo e descendo) */
+@keyframes fly {
+  0% { transform: translateY(-20px); }
+  100% { transform: translateY(20px); }
+}
+
+/* Animação Asa Esquerda (batendo) */
+@keyframes leftWing {
+  0% { transform: rotate(30deg); }
+  100% { transform: rotate(-30deg); }
+}
+
+/* Animação Asa Direita (batendo) */
+@keyframes rightWing {
+  0% { transform: rotate(-30deg); }
+  100% { transform: rotate(30deg); }
+}

@@ -1,165 +1,28 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Castelo — 1600×900</title>
-  <style>
-    :root{
-      --bg:#f6f6f6;
-      --paper:#ffffff;
-      --stroke:#000000;
-      --accent:#e6e6e6;
-      --max-w:1600px;
-      --max-h:900px;
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(180deg,#efefef,#fff);
-      font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
-      padding:18px;
-    }
-
-    .stage{
-      width:100%;
-      max-width:calc(var(--max-w) - 40px);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .frame{
-      width:100%;
-      aspect-ratio: 16 / 9;
-      max-height:calc(var(--max-h) - 40px);
-      background:var(--paper);
-      border:8px solid var(--stroke);
-      padding:12px;
-      box-shadow:0 18px 60px rgba(0,0,0,0.08);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    /* SVG ocupa a maior parte do frame */
-    svg.canvas{
-      width:94%;
-      height:auto;
-      display:block;
-    }
-
-    /* estilos aplicados dentro do SVG via CSS externo */
-    svg .stroke { stroke:var(--stroke); stroke-linecap:round; stroke-linejoin:round; }
-    svg .thick { stroke-width:8; }
-    svg .med { stroke-width:4; }
-    svg .thin { stroke-width:2; }
-    svg .fill-white { fill:#fff; }
-    svg .fill-light { fill:var(--accent); }
-    svg .fill-dark { fill:var(--stroke); }
-
-    .caption{
-      margin-top:10px;
-      text-align:center;
-      font-size:13px;
-      color:#222;
-    }
-
-    @media (max-width:900px){
-      .stage{max-width:900px}
-      .frame{border-width:6px}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>treino_css_helo</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <main class="stage" aria-label="Castelo vetorial 1600 por 900">
-    <div class="frame">
-      <!-- SVG do castelo (viewBox 1600x900) -->
-      <svg class="canvas" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Castelo estilizado">
-        <!-- fundo interno -->
-        <rect x="24" y="24" width="1552" height="852" class="fill-white stroke med" rx="6" fill="#fff" stroke="#000"/>
+    <div class="container">
+        <div class="bat">
+            <div class="eyes"></div>
+            <div class="eyes"></div>
+        </div>
 
-        <!-- degraus / base -->
-        <g class="fill-light">
-          <rect x="220" y="740" width="1160" height="28" />
-          <rect x="300" y="772" width="1000" height="18" />
-        </g>
-
-        <!-- corpo principal do castelo (retângulo) -->
-        <g class="stroke thick fill-white">
-          <rect x="320" y="320" width="960" height="420" rx="6" class="fill-white stroke med"/>
-        </g>
-
-        <!-- ameias (battlements) ao longo do topo do corpo principal -->
-        <g class="stroke med fill-white">
-          <!-- repetição de blocos -->
-          <!-- left margin -->
-          <g transform="translate(340,300)">
-            <rect x="0" y="0" width="60" height="40" />
-            <rect x="80" y="0" width="60" height="40" />
-            <rect x="160" y="0" width="60" height="40" />
-            <rect x="240" y="0" width="60" height="40" />
-            <rect x="320" y="0" width="60" height="40" />
-            <rect x="400" y="0" width="60" height="40" />
-            <rect x="480" y="0" width="60" height="40" />
-            <rect x="560" y="0" width="60" height="40" />
-            <rect x="640" y="0" width="60" height="40" />
-            <rect x="720" y="0" width="60" height="40" />
-            <rect x="800" y="0" width="60" height="40" />
-          </g>
-        </g>
-
-        <!-- torre central (mais alta) -->
-        <g class="stroke thick fill-white">
-          <rect x="740" y="120" width="120" height="320" rx="6" class="fill-white stroke med"/>
-          <!-- telhado triangular -->
-          <path d="M740 120 L800 60 L860 120 Z" class="fill-white stroke med"/>
-          <!-- pequena janela retangular -->
-          <rect x="782" y="200" width="36" height="44" rx="4" class="fill-light stroke thin"/>
-        </g>
-
-        <!-- torre esquerda e direita menores (opcionais) -->
-        <g class="stroke med fill-white">
-          <rect x="420" y="200" width="80" height="240" rx="4" />
-          <path d="M420 200 L460 160 L500 200 Z" />
-          <rect x="1100" y="200" width="80" height="240" rx="4" />
-          <path d="M1100 200 L1140 160 L1180 200 Z" />
-        </g>
-
-        <!-- porta central em arco -->
-        <g class="stroke med fill-dark">
-          <!-- arco (porta) -->
-          <path d="M740 560 Q800 480 860 560 L860 680 L740 680 Z" class="fill-white stroke med" fill="#fff"/>
-          <!-- contorno e preenchimento escuro para a porta (interior) -->
-          <path d="M760 600 Q800 540 840 600 L840 680 L760 680 Z" class="fill-dark stroke thin" fill="#000"/>
-          <!-- batente / detalhes -->
-          <rect x="792" y="640" width="16" height="24" rx="3" class="fill-light"/>
-        </g>
-
-        <!-- janelas laterais simples -->
-        <g class="stroke thin fill-light">
-          <rect x="460" y="420" width="48" height="72" rx="6" />
-          <rect x="1092" y="420" width="48" height="72" rx="6" />
-          <rect x="620" y="420" width="48" height="72" rx="6" />
-          <rect x="932" y="420" width="48" height="72" rx="6" />
-        </g>
-
-        <!-- contornos finos para dar definição -->
-        <g class="stroke thin">
-          <line x1="320" y1="740" x2="1280" y2="740" />
-          <line x1="320" y1="320" x2="1280" y2="320" />
-        </g>
-
-        <!-- assinatura discreta -->
-        <text x="40" y="880" font-family="Georgia, serif" font-size="14" fill="#666">Castelo vetorial — 1600×900</text>
-      </svg>
+        <div class="caixa-castelo">
+          <div class="torre-castelo"></div>
+          <div class="topo-castelo"></div>
+          <div class="corpo-castelo"></div>
+          <div class="porta-castelo"></div>
+          <div class="torre-castelo"></div>
+        </div>
     </div>
-  </main>
-
-  <div class="caption">Abra este arquivo no navegador — não é necessário baixar imagens externas.</div>
 </body>
+
 </html>
