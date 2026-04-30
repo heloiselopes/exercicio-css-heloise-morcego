@@ -126,6 +126,24 @@ svg .fill-dark { fill:var(--stroke); }
   animation: rightWing 0.5s infinite alternate;
 }
 
+/* Chifre Direito */
+.bat #triangle-up {
+  width: 5px;
+  height: 10px;
+  border-left: -100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 100px solid black;
+}
+
+/* Chifre Esquerdo */
+.bat #triangle-up {
+  width: 5px;
+  height: 10px;
+  border-left: -100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 100px solid black;
+}
+
 /* Animação do Corpo (subindo e descendo) */
 @keyframes fly {
   0% { transform: translateY(-20px); }
